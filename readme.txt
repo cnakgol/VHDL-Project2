@@ -1,0 +1,14 @@
+Control and Communication System Design for Spy Drone Platoon
+Project Description
+It must be noted that this project is just a scenario and there is no link to the real life.
+Assume that you are a digital design engineer in the army and you received a new task with the title of “Control and Communication System for Spy Drone Platoon”. The project leader has written a scenario to explain the design as following:
+Imagine a virtual war between two countries (X (Peace Force) & Y (Terror Force)). There is a front at the W region that is strategically important for the victory. There are two enemy unions (A and B) at this region with distance of 150km to each other and there are also two unions of Peace Forces that are far from 30 km to each other. The crucial point is to know the number of tanks in each enemy group and distribute the total force among the Peace Forces, with respect to the enemy forces distribution, before the attack. Fortunately, we have two drones which were permeated into each enemy group to sense the tanks, and most importantly they are able to transmit data including the number of tanks to a control center through a wireless network. The control center evaluates the coming data and sends the commands to the Peace unions under the authorization of the main command center. 
+Design Specifications
+1. The data A and B used in the communication network are BCD numbers and are 5bits including parity. The most significant bit will be the parity bit and the rest will be a BCD number.
+Figure 1. The general scheme of the system.
+2. We are not interested in the design of spy drones, receivers, and transmitters.
+3. There will be mainly three different block: Parity Check, Data Comparator and the Control Unit.
+4. You will use parity bit with respect to the last number of your student ID. If your student ID is even, the system that you are going to design will have odd parity and vice versa.
+5. After the parity check, if any error occurs, P_out output will be 1. Otherwise, it will be 0.
+6. The Data Comparator compares the data come from the spies and send the comparison results to the control center.
+7. The Control Unit is the main block of the system and performs a number of operations. Control Unit will stay at Receive State until d_in input becomes 1 which indicates new data are present. When d_in input becomes 1, Control Unit goes into Parity Check State. If the parities of the both received data are correct, Error output will be 0 and Control Unit goes into Inform State. Otherwise, Error output will be 1 and Control Unit goes into Receive State. When Control Unit is at Inform State, comparator output is evaluated. If A is greater than or equal to B, A will be displayed on a 7-segment. Otherwise B will be displayed on the 7-segment. In either case, Control Unit will go into Receive State. You can use BCD to 7-segment decoders you have designed in Project-1.
